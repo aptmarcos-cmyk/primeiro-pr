@@ -1,0 +1,214 @@
+{
+  "marca": "REINO",
+  "versao": "1.0",
+  "atualizado": "2026-09-13",
+  "produtos": [
+    {
+      "id": 1,
+      "slug": "suficiente",
+      "nome": "Suficiente",
+      "mensagem": "Jesus Cristo é suficiente",
+      "referencia": "Colossenses 1:19",
+      "publico": "Comunidade",
+      "local": "Peito centro",
+      "base": "#F4F1EA",
+      "tinta": "#14130F",
+      "acento": "#B45A3C",
+      "estilo": "Tipográfico",
+      "tecnica": "Serigrafia 2 cores",
+      "linhas": [
+        "Jesus Cristo",
+        "é suficiente"
+      ],
+      "italico": "linha2"
+    },
+    {
+      "id": 2,
+      "slug": "caminha-na-fe",
+      "nome": "Caminha na Fé",
+      "mensagem": "Caminha na fé",
+      "referencia": "Hebreus 11:1",
+      "publico": "Jovem 13–25",
+      "local": "Peito centro",
+      "base": "#14130F",
+      "tinta": "#F4F1EA",
+      "acento": "#D89272",
+      "estilo": "Lettering",
+      "tecnica": "Serigrafia 2 cores",
+      "linhas": [
+        "Caminha",
+        "na fé"
+      ],
+      "italico": "todas"
+    },
+    {
+      "id": 3,
+      "slug": "escolhido",
+      "nome": "Escolhido",
+      "mensagem": "Escolhido",
+      "referencia": "1 Pedro 2:9",
+      "publico": "Jovem 13–25",
+      "local": "Peito centro + barra",
+      "base": "#FFFFFF",
+      "tinta": "#B45A3C",
+      "acento": "#A7A192",
+      "estilo": "Minimalista",
+      "tecnica": "Serigrafia 1 cor",
+      "linhas": [
+        "ESCO",
+        "LHIDO"
+      ],
+      "italico": "nenhuma"
+    },
+    {
+      "id": 4,
+      "slug": "tudo-posso",
+      "nome": "Tudo Posso",
+      "mensagem": "Tudo posso",
+      "referencia": "Filipenses 4:13",
+      "publico": "Jovem ativo",
+      "local": "Costas vertical + peito esq.",
+      "base": "#F4F1EA",
+      "tinta": "#14130F",
+      "acento": "#4A5D42",
+      "estilo": "Tipográfico",
+      "tecnica": "Serigrafia 2 cores",
+      "linhas": [
+        "TUDO POSSO"
+      ],
+      "italico": "nenhuma"
+    },
+    {
+      "id": 5,
+      "slug": "cruz-reino",
+      "nome": "Cruz Reino",
+      "mensagem": "Símbolo, sem texto",
+      "referencia": null,
+      "publico": "Profissional 25–45",
+      "local": "Peito esq. + manga",
+      "base": "#14130F",
+      "tinta": "#B45A3C",
+      "acento": "#A7A192",
+      "estilo": "Simbólico",
+      "tecnica": "Bordado 2,6 cm",
+      "linhas": [],
+      "italico": "nenhuma"
+    },
+    {
+      "id": 6,
+      "slug": "graca-sobre-graca",
+      "nome": "Graça sobre Graça",
+      "mensagem": "Graça sobre graça",
+      "referencia": "João 1:16",
+      "publico": "Líder / comunidade",
+      "local": "Peito centro",
+      "base": "#4A5D42",
+      "tinta": "#F4F1EA",
+      "acento": "#E6E4D6",
+      "estilo": "Lettering",
+      "tecnica": "Serigrafia 1 cor",
+      "linhas": [
+        "Graça",
+        "sobre",
+        "Graça"
+      ],
+      "italico": "linha2"
+    },
+    {
+      "id": 7,
+      "slug": "o-dono",
+      "nome": "O Dono",
+      "mensagem": "Deus é dono do meu negócio",
+      "referencia": "Colossenses 3:23",
+      "publico": "Profissional 25–45",
+      "local": "Peito alto esq.",
+      "base": "#F4F1EA",
+      "tinta": "#14130F",
+      "acento": "#B45A3C",
+      "estilo": "Minimalista premium",
+      "tecnica": "Serigrafia fina 2 cores",
+      "linhas": [
+        "Deus é dono",
+        "do meu negócio"
+      ],
+      "italico": "nenhuma"
+    },
+    {
+      "id": 8,
+      "slug": "minha-casa",
+      "nome": "Minha Casa",
+      "mensagem": "Eu e a minha casa",
+      "referencia": "Josué 24:15",
+      "publico": "Família",
+      "local": "Peito centro",
+      "base": "#FFFFFF",
+      "tinta": "#14130F",
+      "acento": "#B45A3C",
+      "estilo": "Tipográfico + símbolo",
+      "tecnica": "Serigrafia 4 cores",
+      "linhas": [
+        "Eu e a",
+        "minha casa"
+      ],
+      "italico": "nenhuma",
+      "personalizavel": "número de quadrados = membros da casa"
+    },
+    {
+      "id": 9,
+      "slug": "ressurreicao",
+      "nome": "Ressurreição",
+      "mensagem": "Ele não está aqui",
+      "referencia": "Lucas 24:6",
+      "publico": "Todos · Páscoa",
+      "local": "Peito centro",
+      "base": "#71210E",
+      "tinta": "#F4F1EA",
+      "acento": "#F7E6DC",
+      "estilo": "Simbólico + tipográfico",
+      "tecnica": "Serigrafia 1 cor",
+      "linhas": [
+        "Ele não está",
+        "aqui"
+      ],
+      "italico": "linha2",
+      "sazonal": "Páscoa"
+    },
+    {
+      "id": 10,
+      "slug": "eu-nao-ele",
+      "nome": "Eu não, Ele",
+      "mensagem": "Eu não, Ele",
+      "referencia": "Gálatas 2:20",
+      "publico": "Jovem / louvor",
+      "local": "Peito centro",
+      "base": "#71210E",
+      "tinta": "#F4F1EA",
+      "acento": "#F7E6DC",
+      "estilo": "Lettering + símbolo",
+      "tecnica": "Serigrafia 1 cor",
+      "linhas": [
+        "Eu não,",
+        "Ele"
+      ],
+      "italico": "linha2",
+      "simbolo": "duas mãos levantadas"
+    },
+    {
+      "id": 11,
+      "slug": "tres-atos",
+      "nome": "Três Atos",
+      "mensagem": "Criação · Cruz · Reino",
+      "referencia": null,
+      "publico": "Líder / ensino",
+      "local": "Costas + peito esq.",
+      "base": "#14130F",
+      "tinta": "#F4F1EA",
+      "acento": "#B45A3C",
+      "estilo": "Narrativo ilustrado",
+      "tecnica": "Serigrafia 3 cores",
+      "linhas": [],
+      "italico": "nenhuma",
+      "simbolo": "semente, cruz, coroa"
+    }
+  ]
+}
