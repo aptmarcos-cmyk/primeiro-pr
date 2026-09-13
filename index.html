@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REINO — Vista o Evangelho</title>
+<meta name="description" content="Camisetas com propósito para quem quer vestir a fé com significado. Jovens, profissionais, famílias e líderes. Inscreva-se e ganhe 15% OFF no lançamento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-black:#14130F;
+    --color-off-white:#F4F1EA;
+    --color-white:#FFFFFF;
+    --color-terracota:#B45A3C;
+    --color-terracota-dark:#8E4229;
+    --color-verde:#4A5D42;
+    --color-text-soft:#46443C;
+    --color-caption:#6A675C;
+    --color-border:#E4DDCD;
+    --color-border-strong:#DED7C7;
+    --color-surface:#EDE9DE;
+    --color-stripe:#FCFAF4;
+    --color-pascoa:#71210E;
+    --font-display:'Instrument Serif', Georgia, serif;
+    --font-body:'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+    --shadow:0 8px 24px -12px rgba(20,19,15,.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--color-black);
+    background:var(--color-white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .container{
+    width:100%;
+    max-width:1320px;
+    margin:0 auto;
+    padding:0 56px;
+  }
+  section{padding:88px 0;}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.1;margin:0 0 16px;color:var(--color-black);font-weight:400;}
+  h2{font-size:clamp(28px,4vw,44px);text-align:center;}
+  .eyebrow{
+    display:inline-block;
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:12px;
+    font-weight:400;
+    color:var(--color-terracota);
+    margin-bottom:14px;
+  }
+  .section-intro{
+    max-width:640px;
+    margin:0 auto 56px;
+    text-align:center;
+    color:var(--color-text-soft);
+    font-size:17px;
+  }
+
+  /* -------- Buttons -------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:var(--color-black);
+    color:var(--color-off-white);
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:15px 30px;
+    border:none;
+    border-radius:0;
+    cursor:pointer;
+    text-decoration:none;
+    transition:background .15s ease-out;
+  }
+  .btn:hover{background:var(--color-terracota);}
+  .btn:active{background:var(--color-terracota-dark);transform:translateY(1px);}
+  .btn:focus-visible{outline:2px solid var(--color-terracota);outline-offset:2px;}
+  .btn-secondary{
+    background:transparent;
+    color:var(--color-black);
+    border:1px solid var(--color-black);
+  }
+  .btn-secondary:hover{background:var(--color-black);color:var(--color-off-white);}
+
+  .link-arrow{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:11px;
+    color:var(--color-terracota);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color .15s ease-out, gap .15s ease-out;
+  }
+  .link-arrow:hover{border-color:var(--color-terracota);gap:9px;}
+
+  /* -------- Badges -------- */
+  .badge{
+    display:inline-block;
+    font-family:var(--font-mono);
+    font-size:10px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:6px 10px;
+    border-radius:999px;
+    line-height:1;
+  }
+  .badge-black{background:var(--color-black);color:var(--color-off-white);}
+  .badge-terracota{background:var(--color-terracota);color:#fff;}
+  .badge-green{background:var(--color-verde);color:#fff;}
+  .badge-outline{border:1px solid #CFC8B8;color:var(--color-text-soft);}
+  .badge-outline-terracota{border:1px solid var(--color-terracota);color:var(--color-terracota-dark);}
+  .badge-outline-green{border:1px solid var(--color-verde);color:#3B4A35;}
+  .badge-premium{background:#EBE6D9;color:var(--color-black);}
+  .badge-pascoa{background:var(--color-pascoa);color:#F7E6DC;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+
+  /* -------- Scroll reveal -------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* -------- Forms -------- */
+  .stack-form{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    max-width:560px;
+  }
+  .stack-form.form-3{max-width:640px;}
+  .field{
+    flex:1 1 180px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    text-align:left;
+  }
+  label{font-size:12px;font-weight:700;color:var(--color-text-soft);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;}
+  input[type="email"],
+  input[type="text"],
+  select{
+    width:100%;
+    padding:14px 16px;
+    border-radius:0;
+    border:1px solid var(--color-border-strong);
+    background:var(--color-white);
+    font-family:var(--font-body);
+    font-size:15px;
+    color:var(--color-black);
+  }
+  input:focus,select:focus{
+    outline:none;
+    border-color:var(--color-terracota);
+    box-shadow:0 0 0 2px rgba(180,90,60,.15);
+  }
+  .form-note{
+    font-size:13px;
+    color:var(--color-text-soft);
+    margin-top:10px;
+  }
+  .form-success{
+    display:none;
+    background:#EFF4EC;
+    border:1px solid var(--color-verde);
+    color:#354B2E;
+    padding:16px 18px;
+    font-weight:600;
+  }
+  .form-error{
+    display:none;
+    background:#FBEAEA;
+    border:1px solid #C96B6B;
+    color:#7A2E2E;
+    padding:12px 16px;
+    font-size:14px;
+    margin-top:10px;
+  }
+  form.submitted .stack-form{display:none;}
+  form.submitted .form-success{display:block;}
+
+  /* -------- Logo -------- */
+  .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit;}
+  .logo-crown{
+    width:30px;height:24px;flex-shrink:0;
+    background:var(--color-terracota);
+    clip-path:polygon(0 100%, 0 30%, 25% 60%, 50% 10%, 75% 60%, 100% 30%, 100% 100%);
+  }
+  .logo-crown.on-dark{background:var(--color-off-white);}
+  .logo-word{font-family:var(--font-display);font-size:24px;letter-spacing:.06em;line-height:1;}
+  .logo-tagline{display:block;font-family:var(--font-mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--color-caption);margin-top:2px;}
+
+  .topbar{padding:22px 0;border-bottom:1px solid var(--color-border);}
+
+  /* -------- Hero -------- */
+  .hero{background:var(--color-off-white);padding:88px 0 56px;}
+  .hero h1{
+    font-size:clamp(38px,7vw,84px);
+    line-height:.94;
+    letter-spacing:-.02em;
+    max-width:820px;
+  }
+  .hero h1 em{font-style:italic;}
+  .hero .lead{
+    font-size:19px;
+    line-height:1.6;
+    color:var(--color-text-soft);
+    max-width:640px;
+    margin:0 0 36px;
+  }
+  .hero-trust{margin-top:18px;font-size:13px;color:var(--color-caption);}
+
+  /* -------- Cards / grid -------- */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .card{
+    background:var(--color-white);
+    border:1px solid var(--color-border);
+    padding:32px 26px;
+    transition:border-color .15s ease-out, box-shadow .15s ease-out, transform .15s ease-out;
+  }
+  .card:hover{border-color:var(--color-border-strong);box-shadow:var(--shadow);transform:translateY(-2px);}
+  .card .icon{
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+    background:var(--color-black);
+    color:var(--color-off-white);
+  }
+  .card h3{font-size:20px;margin-bottom:8px;}
+  .card p{margin:0;color:var(--color-text-soft);font-size:15px;}
+  .problem{background:var(--color-surface);}
+
+  .bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:24px;}
+  .bento .card{display:flex;flex-direction:column;justify-content:center;}
+  .bento .card.tall{grid-row:span 2;}
+  @media (min-width:861px){.bento{grid-template-rows:repeat(2,1fr);}}
+
+  /* -------- Product grid (REINO camisetas) -------- */
+  #produtos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:28px;
+  }
+  .product-card{background:var(--color-white);border:1px solid var(--color-border);min-width:0;display:flex;flex-direction:column;transition:border-color .15s ease-out, box-shadow .15s ease-out;}
+  .product-card:hover{border-color:var(--color-border-strong);box-shadow:var(--shadow);}
+  .mockup-zone{padding:34px;display:flex;align-items:center;justify-content:center;}
+  .shirt-mockup{
+    position:relative;
+    width:100%;
+    max-width:260px;
+    aspect-ratio:4/5;
+    clip-path:polygon(38% 2%, 29% 5%, 10% 15%, 2% 40%, 14% 53%, 21% 36%, 19% 97%, 81% 97%, 79% 36%, 86% 53%, 98% 40%, 90% 15%, 71% 5%, 62% 2%);
+    filter:drop-shadow(0 16px 16px rgba(20,19,15,0.18));
+  }
+  .shirt-mockup.shading-light{box-shadow:inset 30px 0 44px -24px rgba(20,19,15,0.16), inset -30px 0 44px -24px rgba(20,19,15,0.16), inset 0 -34px 44px -28px rgba(20,19,15,0.13), inset 0 22px 30px -22px rgba(255,255,255,0.5);}
+  .shirt-mockup.shading-dark{box-shadow:inset 30px 0 44px -22px rgba(0,0,0,0.55), inset -30px 0 44px -22px rgba(0,0,0,0.55), inset 0 -34px 44px -26px rgba(0,0,0,0.5), inset 0 22px 30px -22px rgba(255,255,255,0.09);}
+  .collar{position:absolute;top:-1%;left:50%;transform:translateX(-50%);width:27%;height:9%;border-radius:0 0 999px 999px;}
+  .print-area{
+    position:absolute;top:23%;left:20%;right:20%;
+    text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+  }
+  .print-area .pline{font-size:13px;line-height:1.25;white-space:nowrap;}
+  .hand{position:absolute;width:20px;height:31px;top:46%;
+    clip-path:polygon(4% 100%, 4% 52%, 8% 52%, 8% 14%, 12% 10%, 17% 10%, 21% 14%, 21% 46%, 26% 46%, 26% 6%, 30% 2%, 35% 2%, 39% 6%, 39% 46%, 44% 46%, 44% 2%, 48% 0%, 53% 0%, 57% 4%, 57% 46%, 62% 46%, 62% 16%, 66% 12%, 71% 12%, 75% 16%, 75% 52%, 82% 52%, 86% 60%, 84% 100%);}
+  .hand-left{left:26%;}
+  .hand-right{right:26%;transform:scaleX(-1);}
+  .symbol-row{display:flex;gap:14px;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:18px;}
+  .family-squares{display:flex;gap:5px;margin-top:8px;}
+  .family-squares span{width:8px;height:8px;border:1px solid currentColor;}
+
+  .product-body{padding:28px;display:flex;flex-direction:column;flex:1;}
+  .product-title-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:12px;}
+  .product-title-row h3{font-size:28px;margin:0;}
+  .product-num{font-family:var(--font-mono);font-size:11px;color:var(--color-terracota);flex-shrink:0;}
+  .product-body p{font-size:15px;line-height:1.6;color:var(--color-text-soft);margin:0 0 10px;}
+  .product-body p:last-of-type{margin-bottom:16px;}
+  .product-body .cta{margin-top:auto;}
+
+  /* -------- Ficha técnica -------- */
+  .spec-wrap{overflow-x:auto;border:1px solid var(--color-border-strong);background:var(--color-white);}
+  table.spec{border-collapse:collapse;min-width:900px;width:100%;font-size:13px;}
+  table.spec thead th{
+    background:var(--color-black);color:var(--color-off-white);
+    font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:400;padding:14px 16px;text-align:left;white-space:nowrap;
+  }
+  table.spec tbody td{border-top:1px solid #EFE9DA;padding:13px 16px;text-align:left;vertical-align:top;}
+  table.spec tbody tr:nth-child(even){background:var(--color-stripe);}
+  table.spec td.num{font-family:var(--font-mono);color:var(--color-terracota);}
+  table.spec td.name{font-weight:700;}
+  .swatch{display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:middle;border:1px solid rgba(0,0,0,.15);}
+
+  /* -------- Video / lifestyle banner -------- */
+  .video-banner{
+    position:relative;overflow:hidden;aspect-ratio:16/7;
+    background:linear-gradient(135deg, var(--color-black) 0%, var(--color-terracota-dark) 55%, var(--color-terracota) 100%);
+    display:flex;align-items:center;justify-content:center;text-decoration:none;
+  }
+  .play-btn{
+    width:72px;height:72px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.7);
+    display:flex;align-items:center;justify-content:center;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.25);}50%{box-shadow:0 0 0 14px rgba(255,255,255,0);}}
+  .video-caption{position:absolute;left:28px;bottom:22px;color:#fff;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;}
+
+  /* -------- Category tiles -------- */
+  .category-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:20px;height:520px;}
+  .category-tile{
+    position:relative;display:flex;align-items:flex-end;padding:22px;color:#fff;text-decoration:none;
+    transition:transform .3s ease;overflow:hidden;
+  }
+  .category-tile:hover{transform:translateY(-4px);}
+  .category-tile span{font-family:var(--font-display);font-size:24px;position:relative;z-index:1;}
+  .category-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 55%);}
+  .cat-jovem{grid-column:1;grid-row:1;background:linear-gradient(160deg,var(--color-terracota) 0%, var(--color-terracota-dark) 100%);}
+  .cat-profissional{grid-column:1;grid-row:2;background:linear-gradient(160deg,#3A3229 0%, var(--color-black) 100%);}
+  .cat-familia{grid-column:2;grid-row:1 / 3;background:linear-gradient(160deg,var(--color-verde) 0%, #33402D 100%);}
+
+  /* -------- Social proof -------- */
+  .proof-stats{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-bottom:56px;text-align:center;}
+  .proof-stats .stat-num{font-family:var(--font-display);font-size:38px;color:var(--color-terracota);display:block;}
+  .proof-stats .stat-label{font-size:13px;color:var(--color-caption);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;}
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testimonial{background:var(--color-white);border:1px solid var(--color-border);padding:28px 24px;}
+  .testimonial .stars{color:var(--color-terracota);letter-spacing:2px;font-size:14px;margin-bottom:12px;}
+  .testimonial p.quote{font-style:italic;font-family:var(--font-display);font-size:19px;color:var(--color-black);margin:0 0 18px;}
+  .testimonial .who{display:flex;align-items:center;gap:10px;}
+  .testimonial .avatar{width:34px;height:34px;background:var(--color-black);color:var(--color-off-white);font-family:var(--font-mono);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .testimonial .author{font-size:14px;font-weight:700;}
+  .testimonial .date{font-size:12px;color:var(--color-caption);}
+
+  /* -------- Community CTA -------- */
+  .community{background:var(--color-black);color:var(--color-off-white);text-align:center;}
+  .community h2,.community .section-intro{color:var(--color-off-white);}
+  .community .section-intro{color:#C9C3B6;}
+  .community label{color:#C9C3B6;}
+  .community .form-note{color:#A39D8E;}
+  .community .stack-form{margin:0 auto;justify-content:center;}
+
+  /* -------- FAQ -------- */
+  .faq-list{max-width:760px;margin:0 auto;}
+  details{background:var(--color-white);border:1px solid var(--color-border);padding:18px 22px;margin-bottom:12px;}
+  summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+';font-size:22px;color:var(--color-terracota);margin-left:12px;}
+  details[open] summary::after{content:'–';}
+  details p{margin:14px 0 0;color:var(--color-text-soft);}
+
+  /* -------- Final CTA -------- */
+  .final-cta{background:var(--color-terracota);color:#fff;text-align:center;}
+  .final-cta h2{color:#fff;}
+  .badge-urgency{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);padding:10px 20px;font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px;}
+  .final-cta .section-intro{color:#FBE9E2;}
+  .final-cta .stack-form{margin:0 auto;justify-content:center;}
+  .final-cta label{color:#FBE9E2;}
+  .final-cta input,.final-cta select{border:1px solid transparent;}
+  .final-cta .btn{background:var(--color-black);}
+  .final-cta .btn:hover{background:#000;}
+  .final-cta .form-note{color:#FBE9E2;}
+
+  /* -------- Footer -------- */
+  footer{background:var(--color-black);color:#C9BFAE;padding:56px 0 24px;font-size:14px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  .footer-grid p{margin:0 0 6px;color:#B7AC97;font-size:13px;}
+  .footer-col h4{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#fff;margin:0 0 14px;font-weight:400;}
+  .footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-col a{text-decoration:none;color:#C9BFAE;font-size:14px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-size:12px;color:#8A8074;text-align:center;font-family:var(--font-mono);letter-spacing:.04em;}
+
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  @media (max-width:860px){
+    .container{padding:0 24px;}
+    .grid-3{grid-template-columns:1fr;}
+    .bento{grid-template-columns:1fr;}
+    .bento .card.tall{grid-row:auto;}
+    .testimonials{grid-template-columns:1fr;}
+    .proof-stats{gap:32px;}
+    section{padding:64px 0;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .category-grid{height:auto;grid-template-columns:1fr;grid-template-rows:none;}
+    .cat-jovem,.cat-profissional,.cat-familia{grid-column:1;grid-row:auto;height:200px;}
+    .hero{padding:56px 0 40px;}
+    .hero h1{font-size:48px;}
+  }
+  @media (max-width:480px){
+    .stack-form{flex-direction:column;}
+    .field{flex:1 1 100%;}
+    .footer-grid{grid-template-columns:1fr;}
+    .product-title-row h3{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <a href="#topo" class="logo" id="topo">
+      <span class="logo-crown" aria-hidden="true"></span>
+      <span>
+        <span class="logo-word">REINO</span>
+        <span class="logo-tagline">Vista o evangelho</span>
+      </span>
+    </a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Pré-lançamento · vista o evangelho</span>
+    <h1>Vista o evangelho,<br><em>leve o Reino com você.</em></h1>
+    <p class="lead">Camisetas com propósito para jovens, profissionais, famílias e líderes que querem vestir a fé com significado — convite, não imposição.</p>
+
+    <form id="form-hero" class="signup-form" data-form-name="hero">
+      <div class="stack-form">
+        <div class="field">
+          <label for="hero-email" class="visually-hidden">Seu melhor e-mail</label>
+          <input id="hero-email" name="email" type="email" placeholder="Seu melhor e-mail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="hero-segment" class="visually-hidden">Qual público te representa?</label>
+          <select id="hero-segment" name="publico" required>
+            <option value="" disabled selected>Qual te representa?</option>
+            <option value="jovem">Jovem (13–25)</option>
+            <option value="profissional">Profissional (25–45)</option>
+            <option value="familia">Família</option>
+            <option value="lider">Líder / Comunidade</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Quero fazer parte</button>
+      </div>
+      <div class="form-success" role="status">Prontinho! Você já está na lista. 🙏</div>
+      <div class="form-error" role="alert">Não conseguimos enviar agora. Tenta de novo em instantes.</div>
+    </form>
+    <p class="hero-trust">Sem spam. Só avisos sobre o lançamento e condições exclusivas.</p>
+  </div>
+</header>
+
+<!-- ============ PROBLEM ============ -->
+<section class="problem" id="problema">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;text-align:center;">O que incomoda</span>
+    <h2 class="reveal">O problema com moda cristã hoje</h2>
+    <p class="section-intro reveal">A gente ouviu de perto o que trava quem quer vestir a fé com estilo — e resolveu construir algo diferente.</p>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".5"/><path d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+        </div>
+        <h3>Design datado</h3>
+        <p>Peças cristãs costumam parecer antiquadas, com estampas genéricas que não conversam com a moda atual.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M12 8s5 6 5 10a5 5 0 0 1-10 0c0-4 5-10 5-10Z"/></svg>
+        </div>
+        <h3>Qualidade que decepciona</h3>
+        <p>Tecidos e costuras que não duram, estampas que rachiam e desbotam depois de poucas lavagens.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h3>Pouca variedade</h3>
+        <p>Faltam opções que unam fé e moda de verdade — para todas as idades, estilos e ocasiões do dia a dia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION (bento) ============ -->
+<section class="solution" id="solucao">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;text-align:center;">Nossa abordagem</span>
+    <h2 class="reveal">A gente resolveu assim</h2>
+    <p class="section-intro reveal">Quatro compromissos guiam cada peça REINO.</p>
+
+    <div class="bento">
+      <div class="card tall reveal">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"/></svg></div>
+        <h3>Design atual</h3>
+        <p>Cortes modernos e estampas minimalistas, criados por designers que entendem de moda de verdade.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Qualidade premium</h3>
+        <p>Algodão penteado 100%, 180g/m², costura reforçada para durar lavagem após lavagem.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
+        <h3>Mensagens autênticas</h3>
+        <p>Versículos e frases que fazem sentido na sua caminhada — sem clichê, sem forçar a barra.</p>
+      </div>
+      <div class="card tall reveal">
+        <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Compra sem risco</h3>
+        <p>30 dias de garantia. Se não amar a peça, trocamos ou devolvemos seu dinheiro sem burocracia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUTOS REINO ============ -->
+<section id="designs">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;text-align:center;">Coleção de lançamento</span>
+    <h2 class="reveal">11 conceitos, um só Reino</h2>
+    <p class="section-intro reveal">Cada camiseta carrega uma mensagem, uma referência bíblica e um público — conta pra gente qual você mais quer ver pronta.</p>
+
+    <div id="produtos-grid"><!-- renderizado via JS a partir de REINO_PRODUCTS --></div>
+
+    <div style="text-align:center;margin-top:44px;">
+      <a href="#comunidade" class="btn btn-secondary">Ver todos os designs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FICHA TÉCNICA ============ -->
+<section style="padding-top:0;background:var(--color-surface);">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;text-align:center;">Ficha técnica</span>
+    <h2 class="reveal">Especificações da coleção</h2>
+    <p class="section-intro reveal">Todos os dados de produção, direto do catálogo da marca.</p>
+    <div class="spec-wrap reveal">
+      <table class="spec">
+        <thead>
+          <tr>
+            <th>#</th><th>Design</th><th>Mensagem</th><th>Público</th><th>Local</th><th>Base / Tinta</th><th>Estilo</th><th>Técnica</th>
+          </tr>
+        </thead>
+        <tbody id="produtos-tabela"><!-- renderizado via JS --></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO / LIFESTYLE BANNER ============ -->
+<section>
+  <div class="container">
+    <a class="video-banner reveal" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Ver bastidores no Instagram">
+      <span class="play-btn" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="video-caption">Veja os bastidores da coleção</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CATEGORIAS POR PÚBLICO ============ -->
+<section id="categorias">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;text-align:center;">Para cada chamado</span>
+    <h2 class="reveal">Encontre o seu público</h2>
+    <p class="section-intro reveal">Cada linha tem sua própria linguagem visual, mas todas compartilham o mesmo propósito.</p>
+
+    <div class="category-grid reveal">
+      <a class="category-tile cat-jovem" href="#final-cta"><span>Jovem</span></a>
+      <a class="category-tile cat-profissional" href="#final-cta"><span>Profissional</span></a>
+      <a class="category-tile cat-familia" href="#final-cta"><span>Família</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="problem" id="comunidade-prova">
+  <div class="container">
+    <div class="proof-stats">
+      <div class="reveal"><span class="stat-num">1.200+</span><span class="stat-label">pessoas já se inscreveram</span></div>
+      <div class="reveal"><span class="stat-num">4.9/5</span><span class="stat-label">satisfação nas prévias</span></div>
+      <div class="reveal"><span class="stat-num">27</span><span class="stat-label">estados já representados</span></div>
+    </div>
+
+    <h2 class="reveal">Quem já viu, aprovou</h2>
+    <p class="section-intro reveal">Depoimentos de quem participou das nossas primeiras rodadas de teste.</p>
+
+    <div class="testimonials">
+      <blockquote class="testimonial reveal">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="quote">"Finalmente uma marca cristã com design que eu realmente usaria na rua, sem parecer 'roupa de igreja'."</p>
+        <div class="who"><div class="avatar" aria-hidden="true">MS</div><div><p class="author">Marina S.</p><p class="date">Lista de espera</p></div></div>
+      </blockquote>
+      <blockquote class="testimonial reveal">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="quote">"A qualidade do tecido me surpreendeu. Lavei várias vezes e a estampa continua igual."</p>
+        <div class="who"><div class="avatar" aria-hidden="true">RT</div><div><p class="author">Rafael T.</p><p class="date">Teste de prévia</p></div></div>
+      </blockquote>
+      <blockquote class="testimonial reveal">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p class="quote">"Comprei a 'Cruz Reino' pro meu marido e ele usa até no trabalho. Discreta e muito bem feita."</p>
+        <div class="who"><div class="avatar" aria-hidden="true">CO</div><div><p class="author">Camila O.</p><p class="date">Teste de prévia</p></div></div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY CTA ============ -->
+<section class="community" id="comunidade">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;">Comunidade</span>
+    <h2 class="reveal">Faça parte de 1000+ cristãos</h2>
+    <p class="section-intro reveal">Entre para a lista e receba em primeira mão as novidades, bastidores e condições especiais de lançamento.</p>
+
+    <form id="form-community" class="signup-form reveal" data-form-name="community">
+      <div class="stack-form form-3">
+        <div class="field">
+          <label for="community-name">Nome</label>
+          <input id="community-name" name="nome" type="text" placeholder="Seu nome" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="community-email">E-mail</label>
+          <input id="community-email" name="email" type="email" placeholder="Seu melhor e-mail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="community-segment">Público</label>
+          <select id="community-segment" name="publico" required>
+            <option value="" disabled selected>Escolha</option>
+            <option value="jovem">Jovem (13–25)</option>
+            <option value="profissional">Profissional (25–45)</option>
+            <option value="familia">Família</option>
+            <option value="lider">Líder / Comunidade</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:16px;"><button type="submit" class="btn">Me adiciona</button></div>
+      <div class="form-success" role="status">Feito! Bem-vindo(a) à comunidade. 🙏</div>
+      <div class="form-error" role="alert">Não conseguimos enviar agora. Tenta de novo em instantes.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <span class="eyebrow reveal" style="display:block;text-align:center;">Dúvidas</span>
+    <h2 class="reveal">Perguntas frequentes</h2>
+    <p class="section-intro reveal">Se ficou alguma dúvida, dá uma olhada aqui embaixo.</p>
+
+    <div class="faq-list reveal">
+      <details>
+        <summary>Quando lança?</summary>
+        <p>A primeira coleção lança em breve. Quem estiver na lista de e-mail recebe a data exata em primeira mão, antes de qualquer anúncio público.</p>
+      </details>
+      <details>
+        <summary>Como funciona a pré-venda?</summary>
+        <p>Ao se inscrever, você garante acesso antecipado ao catálogo completo e pode reservar sua peça antes do lançamento oficial, com condições exclusivas.</p>
+      </details>
+      <details>
+        <summary>Qual é a garantia?</summary>
+        <p>Se a peça chegar com qualquer defeito de fabricação ou não servir, trocamos ou devolvemos seu dinheiro em até 30 dias após o recebimento.</p>
+      </details>
+      <details>
+        <summary>Vocês enviam para todo o Brasil?</summary>
+        <p>Sim! O envio é para todo o território nacional. Os prazos e valores de frete serão exibidos no checkout, calculados pelo seu CEP.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA + URGÊNCIA ============ -->
+<section class="final-cta" id="final-cta">
+  <div class="container">
+    <span class="badge-urgency reveal">⏳ Primeiros 200 = 15% OFF no lançamento</span>
+    <h2 class="reveal">Garanta seu desconto antes que acabe</h2>
+    <p class="section-intro reveal">As vagas com desconto de lançamento são limitadas às 200 primeiras inscrições. Entre agora, sem compromisso.</p>
+
+    <form id="form-final" class="signup-form reveal" data-form-name="final">
+      <div class="stack-form">
+        <div class="field">
+          <label for="final-email" class="visually-hidden">Seu melhor e-mail</label>
+          <input id="final-email" name="email" type="email" placeholder="Seu melhor e-mail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="final-segment" class="visually-hidden">Qual público te representa?</label>
+          <select id="final-segment" name="publico" required>
+            <option value="" disabled selected>Qual te representa?</option>
+            <option value="jovem">Jovem (13–25)</option>
+            <option value="profissional">Profissional (25–45)</option>
+            <option value="familia">Família</option>
+            <option value="lider">Líder / Comunidade</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Quero meu desconto</button>
+      </div>
+      <div class="form-success" role="status">Inscrição confirmada! Seu desconto está garantido. 🙏</div>
+      <div class="form-error" role="alert">Não conseguimos enviar agora. Tenta de novo em instantes.</div>
+    </form>
+    <p class="form-note">Vagas com desconto limitadas aos primeiros 200 inscritos.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#topo" class="logo" style="margin-bottom:10px;">
+          <span class="logo-crown on-dark" aria-hidden="true"></span>
+          <span><span class="logo-word" style="color:#fff;">REINO</span><span class="logo-tagline">Vista o evangelho</span></span>
+        </a>
+        <p>Camisetas com propósito, feitas para durar e vestir sua fé com significado.</p>
+        <p>WhatsApp: +55 11 99999-9999</p>
+        <p>contato@reino.com.br</p>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#problema">Sobre</a></li>
+          <li><a href="#designs">Coleção</a></li>
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#comunidade">Comunidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="mailto:contato@reino.com.br">Contato</a></li>
+          <li><a href="#privacidade">Termos e condições</a></li>
+          <li><a href="#privacidade">Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Redes</h4>
+        <ul>
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="#final-cta">Quero meu desconto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 REINO. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script>
+  // ---- Fonte de verdade: conteúdo extraído de products.json (handoff REINO) ----
+  // Campos "descricao" e "vende" foram adicionados aqui para a copy da landing;
+  // todos os demais campos são fiéis ao products.json original.
+  var REINO_PRODUCTS = [
+    {id:1, slug:"suficiente", nome:"Suficiente", mensagem:"Jesus Cristo é suficiente", referencia:"Colossenses 1:19", publico:"Comunidade", local:"Peito centro", base:"#F4F1EA", tinta:"#14130F", acento:"#B45A3C", estilo:"Tipográfico", tecnica:"Serigrafia 2 cores", linhas:["Jesus Cristo","é suficiente"], italico:"linha2",
+      descricao:"Tipografia limpa em duas linhas sobre tecido cru, com a segunda linha em itálico para dar respiro à frase.",
+      vende:"Fala com quem busca simplicidade — uma declaração de fé direta, sem excesso de elementos."},
+    {id:2, slug:"caminha-na-fe", nome:"Caminha na Fé", mensagem:"Caminha na fé", referencia:"Hebreus 11:1", publico:"Jovem 13–25", local:"Peito centro", base:"#14130F", tinta:"#F4F1EA", acento:"#D89272", estilo:"Lettering", tecnica:"Serigrafia 2 cores", linhas:["Caminha","na fé"], italico:"todas",
+      descricao:"Lettering fluido em itálico sobre camiseta preta, com contraste alto entre tinta clara e tecido escuro.",
+      vende:"O visual urbano e o traço solto conversam direto com o público jovem, sem parecer 'roupa de igreja'."},
+    {id:3, slug:"escolhido", nome:"Escolhido", mensagem:"Escolhido", referencia:"1 Pedro 2:9", publico:"Jovem 13–25", local:"Peito centro + barra", base:"#FFFFFF", tinta:"#B45A3C", acento:"#A7A192", estilo:"Minimalista", tecnica:"Serigrafia 1 cor", linhas:["ESCO","LHIDO"], italico:"nenhuma",
+      descricao:"Palavra única quebrada em duas linhas, tipografia grande e minimalista em terracota sobre branco.",
+      vende:"Uma palavra, um impacto — ideal para quem prefere peças discretas mas com identidade forte."},
+    {id:4, slug:"tudo-posso", nome:"Tudo Posso", mensagem:"Tudo posso", referencia:"Filipenses 4:13", publico:"Jovem ativo", local:"Costas vertical + peito esq.", base:"#F4F1EA", tinta:"#14130F", acento:"#4A5D42", estilo:"Tipográfico", tecnica:"Serigrafia 2 cores", linhas:["TUDO POSSO"], italico:"nenhuma",
+      descricao:"Frase vertical nas costas e detalhe no peito esquerdo, pensada para quem treina e se movimenta.",
+      vende:"Formato duplo (peito + costas) aumenta a visibilidade da mensagem no dia a dia ativo."},
+    {id:5, slug:"cruz-reino", nome:"Cruz Reino", mensagem:"Símbolo, sem texto", referencia:null, publico:"Profissional 25–45", local:"Peito esq. + manga", base:"#14130F", tinta:"#B45A3C", acento:"#A7A192", estilo:"Simbólico", tecnica:"Bordado 2,6 cm", linhas:[], italico:"nenhuma",
+      descricao:"Sem texto — apenas o símbolo da cruz bordado no peito e na manga, discreto e sofisticado.",
+      vende:"Para quem quer levar a fé sem dizer uma palavra: elegante o bastante para o ambiente de trabalho."},
+    {id:6, slug:"graca-sobre-graca", nome:"Graça sobre Graça", mensagem:"Graça sobre graça", referencia:"João 1:16", publico:"Líder / comunidade", local:"Peito centro", base:"#4A5D42", tinta:"#F4F1EA", acento:"#E6E4D6", estilo:"Lettering", tecnica:"Serigrafia 1 cor", linhas:["Graça","sobre","Graça"], italico:"linha2",
+      descricao:"Repetição da palavra 'graça' em três linhas, com destaque em itálico na palavra central, sobre verde musgo.",
+      vende:"A cor sazonal e o lettering suave posicionam a peça como item premium para lideranças e ocasiões especiais."},
+    {id:7, slug:"o-dono", nome:"O Dono", mensagem:"Deus é dono do meu negócio", referencia:"Colossenses 3:23", publico:"Profissional 25–45", local:"Peito alto esq.", base:"#F4F1EA", tinta:"#14130F", acento:"#B45A3C", estilo:"Minimalista premium", tecnica:"Serigrafia fina 2 cores", linhas:["Deus é dono","do meu negócio"], italico:"nenhuma",
+      descricao:"Aplicação pequena e discreta no peito alto esquerdo, como um brasão pessoal de propósito no trabalho.",
+      vende:"Formato discreto e premium fala direto com profissionais que querem levar fé ao ambiente corporativo sem exagero."},
+    {id:8, slug:"minha-casa", nome:"Minha Casa", mensagem:"Eu e a minha casa", referencia:"Josué 24:15", publico:"Família", local:"Peito centro", base:"#FFFFFF", tinta:"#14130F", acento:"#B45A3C", estilo:"Tipográfico + símbolo", tecnica:"Serigrafia 4 cores", linhas:["Eu e a","minha casa"], italico:"nenhuma", personalizavel:"número de quadrados = membros da casa",
+      descricao:"Frase 'Eu e a minha casa' acompanhada de pequenos quadrados que representam cada membro da família.",
+      vende:"A personalização por família cria um item colecionável e afetivo — perfeito para presentear."},
+    {id:9, slug:"ressurreicao", nome:"Ressurreição", mensagem:"Ele não está aqui", referencia:"Lucas 24:6", publico:"Todos · Páscoa", local:"Peito centro", base:"#71210E", tinta:"#F4F1EA", acento:"#F7E6DC", estilo:"Simbólico + tipográfico", tecnica:"Serigrafia 1 cor", linhas:["Ele não está","aqui"], italico:"linha2", sazonal:"Páscoa",
+      descricao:"Base terracota profunda (Páscoa) com a frase 'Ele não está aqui' em duas linhas, a segunda em itálico.",
+      vende:"Peça sazonal de alto apelo emocional — ideal para campanhas e eventos de Páscoa."},
+    {id:10, slug:"eu-nao-ele", nome:"Eu não, Ele", mensagem:"Eu não, Ele", referencia:"Gálatas 2:20", publico:"Jovem / louvor", local:"Peito centro", base:"#71210E", tinta:"#F4F1EA", acento:"#F7E6DC", estilo:"Lettering + símbolo", tecnica:"Serigrafia 1 cor", linhas:["Eu não,","Ele"], italico:"linha2", simbolo:"duas mãos levantadas",
+      descricao:"Lettering com duas mãos levantadas ilustradas abaixo do texto, remetendo à adoração e à entrega.",
+      vende:"Visual forte para quem vive de louvor e adoração — conecta com o público jovem de ministérios de música."},
+    {id:11, slug:"tres-atos", nome:"Três Atos", mensagem:"Criação · Cruz · Reino", referencia:null, publico:"Líder / ensino", local:"Costas + peito esq.", base:"#14130F", tinta:"#F4F1EA", acento:"#B45A3C", estilo:"Narrativo ilustrado", tecnica:"Serigrafia 3 cores", linhas:[], italico:"nenhuma", simbolo:"semente, cruz, coroa",
+      descricao:"Narrativa em três símbolos (semente, cruz, coroa) espalhados entre peito e costas, contando a história da fé em uma peça.",
+      vende:"Ideal para líderes e professores — vira ferramenta de ensino visual sobre a jornada da fé."}
+  ];
+
+  function zoneBg(base){
+    if (base === '#4A5D42') return '#E6E4D6';
+    if (base === '#71210E') return '#E9E1D6';
+    if (base === '#14130F') return '#14130F';
+    return '#EDE9DE';
+  }
+  function isLightBase(base){ return base === '#F4F1EA' || base === '#FFFFFF'; }
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  function fontForEstilo(estilo){
+    if (estilo.indexOf('Minimalista') === 0 || estilo.indexOf('Minimalista') > -1) return "font-family:var(--font-mono);font-weight:700;letter-spacing:.06em;text-transform:uppercase;";
+    if (estilo.indexOf('Lettering') > -1) return "font-family:var(--font-display);font-style:italic;font-size:16px;";
+    return "font-family:var(--font-body);font-weight:700;letter-spacing:.02em;text-transform:uppercase;";
+  }
+
+  function renderPrintArea(p){
+    if (p.linhas && p.linhas.length) {
+      var styleBase = fontForEstilo(p.estilo);
+      var lines = p.linhas.map(function(line, idx){
+        var italic = (p.italico === 'todas') || (p.italico === 'linha2' && idx === 1);
+        return '<span class="pline" style="' + styleBase + (italic ? 'font-style:italic;' : '') + 'color:' + p.tinta + ';">' + esc(line) + '</span>';
+      }).join('');
+      var extra = '';
+      if (p.simbolo === 'duas mãos levantadas') {
+        return '<div class="print-area"><div class="hand hand-left" style="background:' + p.tinta + ';"></div><div class="hand hand-right" style="background:' + p.tinta + ';"></div>' + lines + '</div>';
+      }
+      if (p.personalizavel) {
+        extra = '<div class="family-squares" style="color:' + p.tinta + ';"><span></span><span></span><span></span></div>';
+      }
+      return '<div class="print-area">' + lines + extra + '</div>';
+    }
+    // Sem linhas de texto: produtos simbólicos
+    if (p.slug === 'cruz-reino') {
+      return '<div class="print-area"><div style="width:22px;height:22px;position:relative;">' +
+        '<div style="position:absolute;left:9px;top:0;width:4px;height:22px;background:' + p.tinta + ';"></div>' +
+        '<div style="position:absolute;left:0;top:8px;width:22px;height:4px;background:' + p.tinta + ';"></div>' +
+        '</div></div>';
+    }
+    if (p.slug === 'tres-atos') {
+      return '<div class="print-area"><div class="symbol-row" style="color:' + p.tinta + ';"><span title="Semente">●</span><span title="Cruz">✝</span><span title="Coroa">♛</span></div></div>';
+    }
+    return '';
+  }
+
+  function renderShirt(p){
+    var zbg = zoneBg(p.base);
+    var shading = isLightBase(p.base) ? 'shading-light' : 'shading-dark';
+    return '' +
+      '<div class="shirt-mockup ' + shading + '" style="background:' + p.base + ';">' +
+        '<div class="collar" style="background:' + zbg + ';"></div>' +
+        renderPrintArea(p) +
+      '</div>';
+  }
+
+  function renderBadges(p){
+    var badges = [];
+    badges.push('<span class="badge badge-outline">' + esc(p.publico) + '</span>');
+    badges.push('<span class="badge badge-outline">' + esc(p.tecnica) + '</span>');
+    if (p.sazonal) badges.push('<span class="badge badge-pascoa">Sazonal · ' + esc(p.sazonal) + '</span>');
+    if (p.personalizavel) badges.push('<span class="badge badge-outline-terracota">Personalizável</span>');
+    if (p.referencia) badges.push('<span class="badge badge-outline-green">' + esc(p.referencia) + '</span>');
+    return '<div class="badge-row">' + badges.join('') + '</div>';
+  }
+
+  function renderProductCard(p){
+    return '' +
+      '<article class="product-card reveal">' +
+        '<div class="mockup-zone" style="background:' + zoneBg(p.base) + ';">' + renderShirt(p) + '</div>' +
+        '<div class="product-body">' +
+          '<div class="product-title-row"><h3>' + esc(p.nome) + '</h3><span class="product-num">#' + String(p.id).padStart(2,'0') + '</span></div>' +
+          renderBadges(p) +
+          '<p>' + esc(p.descricao) + '</p>' +
+          '<p><strong>Vende porque:</strong> ' + esc(p.vende) + '</p>' +
+          '<div class="cta"><a href="#final-cta" class="link-arrow">Quero este →</a></div>' +
+        '</div>' +
+      '</article>';
+  }
+
+  function renderSpecRow(p){
+    return '' +
+      '<tr>' +
+        '<td class="num">' + String(p.id).padStart(2,'0') + '</td>' +
+        '<td class="name">' + esc(p.nome) + '</td>' +
+        '<td>' + esc(p.mensagem) + (p.referencia ? ' <span style="color:var(--color-caption);">(' + esc(p.referencia) + ')</span>' : '') + '</td>' +
+        '<td>' + esc(p.publico) + '</td>' +
+        '<td>' + esc(p.local) + '</td>' +
+        '<td><span class="swatch" style="background:' + p.base + ';"></span>' + p.base + ' / <span class="swatch" style="background:' + p.tinta + ';"></span>' + p.tinta + '</td>' +
+        '<td>' + esc(p.estilo) + '</td>' +
+        '<td>' + esc(p.tecnica) + '</td>' +
+      '</tr>';
+  }
+
+  var gridEl = document.getElementById('produtos-grid');
+  var tableEl = document.getElementById('produtos-tabela');
+  gridEl.innerHTML = REINO_PRODUCTS.map(renderProductCard).join('');
+  tableEl.innerHTML = REINO_PRODUCTS.map(renderSpecRow).join('');
+
+  // Substitua pelo endpoint do seu formulário Formspree (ex: https://formspree.io/f/xxxxxxx)
+  var FORM_ENDPOINT = 'https://formspree.io/f/your-form-id';
+
+  document.querySelectorAll('.signup-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var errorBox = form.querySelector('.form-error');
+      errorBox.style.display = 'none';
+      var data = new FormData(form);
+      fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function (response) {
+          if (response.ok) { form.classList.add('submitted'); }
+          else { errorBox.style.display = 'block'; }
+        })
+        .catch(function () { errorBox.style.display = 'block'; });
+    });
+  });
+
+  // Scroll-reveal (inclui os cards de produto renderizados acima)
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
+  }
+</script>
+
+</body>
+</html>
