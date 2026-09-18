@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          "carrossel-proverbios-justo-insensato/index.html"
+        ],
+        "createdAt": "2026-09-18T19:25:55.064Z",
+        "reason": "Agent: wide tracking only applied to short small-caps captions (the MAS pivot word, verse reference, theme/position footers) -- the rule's own stated exemption for short uppercase labels"
+      }
+    ]
+  }
+}
