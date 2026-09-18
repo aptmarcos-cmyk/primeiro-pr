@@ -26,6 +26,10 @@ Used through standard Git tooling and the GitHub web UI/PR flow described in the
 
 No application code or UI exists yet. Whether this repo grows into a real product, versus staying a pure practice sandbox, is undecided.
 
+## Brand Commitments
+
+For Instagram carousel / devotional content on this repo, the user chose the classic elegant typographic quote-card direction over bolder alternatives (offered: botanical field-guide, cordel woodcut, courtroom-verdict). No specific reference accounts were given; craft judgment was delegated. Standing visual language for this canon: warm ivory paper (`#f6f0e4`) with deep ink (`#2b2118`) and a muted antique-gold accent (`#7a5a22`/`#c9a86a`); display type in Cormorant Garamond (roman for the "just" clause, italic for the "fool" clause), small-caps EB Garamond for citations/footers; thin double hairline frame; no eyebrow/kicker above headings; verse reference and theme caption sit below the quote, not above it.
+
 ## Product Principles
 
 - Optimize for a clear, low-friction PR practice loop, not feature completeness.
