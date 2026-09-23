@@ -1,0 +1,140 @@
+{
+  "colors": {
+    "preto_reino": {
+      "hex": "#14130F",
+      "uso": "Primária. Tipografia, base premium."
+    },
+    "off_white": {
+      "hex": "#F4F1EA",
+      "uso": "Secundária. Fundo padrão, tecido cru."
+    },
+    "terracota": {
+      "hex": "#B45A3C",
+      "uso": "Acento quente. CTA, destaques."
+    },
+    "terracota_escuro": {
+      "hex": "#8E4229",
+      "uso": "Estado active de botões."
+    },
+    "verde_musgo": {
+      "hex": "#4A5D42",
+      "uso": "Acento frio. Premium e sazonal."
+    },
+    "branco": {
+      "hex": "#FFFFFF",
+      "uso": "Tinta em base preta, packshot."
+    },
+    "apoio": {
+      "texto_secundario": "#46443C",
+      "legenda": "#6A675C",
+      "borda": "#E4DDCD",
+      "borda_forte": "#DED7C7",
+      "superficie": "#EDE9DE",
+      "listra_tabela": "#FCFAF4",
+      "terracota_pascoa": "#71210E"
+    }
+  },
+  "proporcao_uso": {
+    "off_white_branco": "60%",
+    "preto": "25%",
+    "terracota": "10%",
+    "verde_musgo": "5%"
+  },
+  "fonts": {
+    "display": {
+      "family": "Instrument Serif",
+      "weights": [
+        400
+      ],
+      "italic": true,
+      "uso": "H1 72–96px, H2 40–48px, tracking -2%"
+    },
+    "body": {
+      "family": "DM Sans",
+      "weights": [
+        300,
+        400,
+        500,
+        700
+      ],
+      "uso": "Body 16–19px, lead 19–22px, line-height 1.6"
+    },
+    "caption": {
+      "family": "IBM Plex Mono",
+      "weights": [
+        400,
+        500
+      ],
+      "uso": "Caption 11–13px, tracking +16%, uppercase, referências bíblicas"
+    }
+  },
+  "googleFonts": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap",
+  "radii": {
+    "default": "0",
+    "pill": "999px"
+  },
+  "border": "1px solid #E4DDCD",
+  "buttons": {
+    "primary": {
+      "default": {
+        "bg": "#14130F",
+        "fg": "#F4F1EA"
+      },
+      "hover": {
+        "bg": "#B45A3C"
+      },
+      "active": {
+        "bg": "#8E4229",
+        "transform": "translateY(1px)"
+      },
+      "padding": "15px 30px",
+      "type": "DM Sans 700 14px / tracking .1em / uppercase"
+    },
+    "secondary": {
+      "default": {
+        "bg": "transparent",
+        "fg": "#14130F",
+        "border": "1px solid #14130F"
+      },
+      "hover": {
+        "bg": "#14130F",
+        "fg": "#F4F1EA"
+      }
+    }
+  },
+  "shirt_mockup": {
+    "box": "width 100%, max-width 300px, aspect-ratio 4/5, position relative",
+    "clip_path": "polygon(38% 2%, 29% 5%, 10% 15%, 2% 40%, 14% 53%, 21% 36%, 19% 97%, 81% 97%, 79% 36%, 86% 53%, 98% 40%, 90% 15%, 71% 5%, 62% 2%)",
+    "filter": "drop-shadow(0 16px 16px rgba(20,19,15,0.18))",
+    "sombreamento_claro": "inset 30px 0 44px -24px rgba(20,19,15,0.16), inset -30px 0 44px -24px rgba(20,19,15,0.16), inset 0 -34px 44px -28px rgba(20,19,15,0.13), inset 0 22px 30px -22px rgba(255,255,255,0.5)",
+    "sombreamento_escuro": "inset 30px 0 44px -22px rgba(0,0,0,0.55), inset -30px 0 44px -22px rgba(0,0,0,0.55), inset 0 -34px 44px -26px rgba(0,0,0,0.5), inset 0 22px 30px -22px rgba(255,255,255,0.09)",
+    "gola": "div absoluto: top -1%, left 50%, translateX(-50%), width 27%, height 9%, border-radius 0 0 999px 999px, background = cor do fundo do card",
+    "area_estampa": "top 22–26%, left/right 19–22%, text-align center",
+    "mao_levantada": "36×56px, clip-path polygon(4% 100%, 4% 52%, 8% 52%, 8% 14%, 12% 10%, 17% 10%, 21% 14%, 21% 46%, 26% 46%, 26% 6%, 30% 2%, 35% 2%, 39% 6%, 39% 46%, 44% 46%, 44% 2%, 48% 0%, 53% 0%, 57% 4%, 57% 46%, 62% 46%, 62% 16%, 66% 12%, 71% 12%, 75% 16%, 75% 52%, 82% 52%, 86% 60%, 84% 100%) — segunda mão com transform: scaleX(-1)"
+  },
+  "icons": [
+    "Cruz",
+    "Porta",
+    "Luz plena",
+    "Aurora",
+    "Monte",
+    "Coroa",
+    "Semente",
+    "Folha",
+    "Palavra",
+    "Chave",
+    "Caminho",
+    "Comunidade"
+  ],
+  "logo": {
+    "principal": "coroa (clip-path polygon(0 100%, 0 30%, 25% 60%, 50% 10%, 75% 60%, 100% 30%, 100% 100%), 58×46) + wordmark REINO em Instrument Serif 54px tracking .06em + tagline 'VISTA O EVANGELHO' IBM Plex Mono 10px tracking .4em",
+    "icone": "quadrado 140px terracota #B45A3C com coroa off-white 84×66 centralizada",
+    "monograma": "círculo 152px border 2px #14130F, coroa terracota 46×36 + 'R' Instrument Serif 48px"
+  },
+  "producao": {
+    "area_peito": "28 × 34 cm máx.",
+    "bordado_peito_esq": "2,6 cm",
+    "costas": "30 × 40 cm",
+    "tecido": "algodão penteado 100%, 180 g/m²"
+  }
+}
