@@ -263,31 +263,8 @@
   }
   .product-card{background:var(--color-white);border:1px solid var(--color-border);min-width:0;display:flex;flex-direction:column;transition:border-color .15s ease-out, box-shadow .15s ease-out;}
   .product-card:hover{border-color:var(--color-border-strong);box-shadow:var(--shadow);}
-  .mockup-zone{padding:34px;display:flex;align-items:center;justify-content:center;}
-  .shirt-mockup{
-    position:relative;
-    width:100%;
-    max-width:260px;
-    aspect-ratio:4/5;
-    clip-path:polygon(38% 2%, 29% 5%, 10% 15%, 2% 40%, 14% 53%, 21% 36%, 19% 97%, 81% 97%, 79% 36%, 86% 53%, 98% 40%, 90% 15%, 71% 5%, 62% 2%);
-    filter:drop-shadow(0 16px 16px rgba(20,19,15,0.18));
-  }
-  .shirt-mockup.shading-light{box-shadow:inset 30px 0 44px -24px rgba(20,19,15,0.16), inset -30px 0 44px -24px rgba(20,19,15,0.16), inset 0 -34px 44px -28px rgba(20,19,15,0.13), inset 0 22px 30px -22px rgba(255,255,255,0.5);}
-  .shirt-mockup.shading-dark{box-shadow:inset 30px 0 44px -22px rgba(0,0,0,0.55), inset -30px 0 44px -22px rgba(0,0,0,0.55), inset 0 -34px 44px -26px rgba(0,0,0,0.5), inset 0 22px 30px -22px rgba(255,255,255,0.09);}
-  .collar{position:absolute;top:-1%;left:50%;transform:translateX(-50%);width:27%;height:9%;border-radius:0 0 999px 999px;}
-  .print-area{
-    position:absolute;top:23%;left:20%;right:20%;
-    text-align:center;
-    display:flex;flex-direction:column;align-items:center;gap:2px;
-  }
-  .print-area .pline{font-size:13px;line-height:1.25;white-space:nowrap;}
-  .hand{position:absolute;width:20px;height:31px;top:46%;
-    clip-path:polygon(4% 100%, 4% 52%, 8% 52%, 8% 14%, 12% 10%, 17% 10%, 21% 14%, 21% 46%, 26% 46%, 26% 6%, 30% 2%, 35% 2%, 39% 6%, 39% 46%, 44% 46%, 44% 2%, 48% 0%, 53% 0%, 57% 4%, 57% 46%, 62% 46%, 62% 16%, 66% 12%, 71% 12%, 75% 16%, 75% 52%, 82% 52%, 86% 60%, 84% 100%);}
-  .hand-left{left:26%;}
-  .hand-right{right:26%;transform:scaleX(-1);}
-  .symbol-row{display:flex;gap:14px;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:18px;}
-  .family-squares{display:flex;gap:5px;margin-top:8px;}
-  .family-squares span{width:8px;height:8px;border:1px solid currentColor;}
+  .mockup-zone{padding:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .mockup-zone img{width:100%;max-width:280px;aspect-ratio:4/5;object-fit:cover;background:#fff;}
 
   .product-body{padding:28px;display:flex;flex-direction:column;flex:1;}
   .product-title-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:12px;}
@@ -763,37 +740,37 @@
   var REINO_PRODUCTS = [
     {id:1, slug:"suficiente", nome:"Suficiente", mensagem:"Jesus Cristo é suficiente", referencia:"Colossenses 1:19", publico:"Comunidade", local:"Peito centro", base:"#F4F1EA", tinta:"#14130F", acento:"#B45A3C", estilo:"Tipográfico", tecnica:"Serigrafia 2 cores", linhas:["Jesus Cristo","é suficiente"], italico:"linha2",
       descricao:"Tipografia limpa em duas linhas sobre tecido cru, com a segunda linha em itálico para dar respiro à frase.",
-      vende:"Fala com quem busca simplicidade — uma declaração de fé direta, sem excesso de elementos."},
+      vende:"Fala com quem busca simplicidade — uma declaração de fé direta, sem excesso de elementos.", foto:"assets/products/01-suficiente.jpg"},
     {id:2, slug:"caminha-na-fe", nome:"Caminha na Fé", mensagem:"Caminha na fé", referencia:"Hebreus 11:1", publico:"Jovem 13–25", local:"Peito centro", base:"#14130F", tinta:"#F4F1EA", acento:"#D89272", estilo:"Lettering", tecnica:"Serigrafia 2 cores", linhas:["Caminha","na fé"], italico:"todas",
       descricao:"Lettering fluido em itálico sobre camiseta preta, com contraste alto entre tinta clara e tecido escuro.",
-      vende:"O visual urbano e o traço solto conversam direto com o público jovem, sem parecer 'roupa de igreja'."},
+      vende:"O visual urbano e o traço solto conversam direto com o público jovem, sem parecer 'roupa de igreja'.", foto:"assets/products/02-caminha-na-fe.jpg"},
     {id:3, slug:"escolhido", nome:"Escolhido", mensagem:"Escolhido", referencia:"1 Pedro 2:9", publico:"Jovem 13–25", local:"Peito centro + barra", base:"#FFFFFF", tinta:"#B45A3C", acento:"#A7A192", estilo:"Minimalista", tecnica:"Serigrafia 1 cor", linhas:["ESCO","LHIDO"], italico:"nenhuma",
       descricao:"Palavra única quebrada em duas linhas, tipografia grande e minimalista em terracota sobre branco.",
-      vende:"Uma palavra, um impacto — ideal para quem prefere peças discretas mas com identidade forte."},
+      vende:"Uma palavra, um impacto — ideal para quem prefere peças discretas mas com identidade forte.", foto:"assets/products/03-escolhido.jpg"},
     {id:4, slug:"tudo-posso", nome:"Tudo Posso", mensagem:"Tudo posso", referencia:"Filipenses 4:13", publico:"Jovem ativo", local:"Costas vertical + peito esq.", base:"#F4F1EA", tinta:"#14130F", acento:"#4A5D42", estilo:"Tipográfico", tecnica:"Serigrafia 2 cores", linhas:["TUDO POSSO"], italico:"nenhuma",
       descricao:"Frase vertical nas costas e detalhe no peito esquerdo, pensada para quem treina e se movimenta.",
-      vende:"Formato duplo (peito + costas) aumenta a visibilidade da mensagem no dia a dia ativo."},
+      vende:"Formato duplo (peito + costas) aumenta a visibilidade da mensagem no dia a dia ativo.", foto:"assets/products/04-tudo-posso.jpg"},
     {id:5, slug:"cruz-reino", nome:"Cruz Reino", mensagem:"Símbolo, sem texto", referencia:null, publico:"Profissional 25–45", local:"Peito esq. + manga", base:"#14130F", tinta:"#B45A3C", acento:"#A7A192", estilo:"Simbólico", tecnica:"Bordado 2,6 cm", linhas:[], italico:"nenhuma",
       descricao:"Sem texto — apenas o símbolo da cruz bordado no peito e na manga, discreto e sofisticado.",
-      vende:"Para quem quer levar a fé sem dizer uma palavra: elegante o bastante para o ambiente de trabalho."},
+      vende:"Para quem quer levar a fé sem dizer uma palavra: elegante o bastante para o ambiente de trabalho.", foto:"assets/products/05-cruz-reino.jpg"},
     {id:6, slug:"graca-sobre-graca", nome:"Graça sobre Graça", mensagem:"Graça sobre graça", referencia:"João 1:16", publico:"Líder / comunidade", local:"Peito centro", base:"#4A5D42", tinta:"#F4F1EA", acento:"#E6E4D6", estilo:"Lettering", tecnica:"Serigrafia 1 cor", linhas:["Graça","sobre","Graça"], italico:"linha2",
       descricao:"Repetição da palavra 'graça' em três linhas, com destaque em itálico na palavra central, sobre verde musgo.",
-      vende:"A cor sazonal e o lettering suave posicionam a peça como item premium para lideranças e ocasiões especiais."},
+      vende:"A cor sazonal e o lettering suave posicionam a peça como item premium para lideranças e ocasiões especiais.", foto:"assets/products/06-graca-sobre-graca.jpg"},
     {id:7, slug:"o-dono", nome:"O Dono", mensagem:"Deus é dono do meu negócio", referencia:"Colossenses 3:23", publico:"Profissional 25–45", local:"Peito alto esq.", base:"#F4F1EA", tinta:"#14130F", acento:"#B45A3C", estilo:"Minimalista premium", tecnica:"Serigrafia fina 2 cores", linhas:["Deus é dono","do meu negócio"], italico:"nenhuma",
       descricao:"Aplicação pequena e discreta no peito alto esquerdo, como um brasão pessoal de propósito no trabalho.",
-      vende:"Formato discreto e premium fala direto com profissionais que querem levar fé ao ambiente corporativo sem exagero."},
+      vende:"Formato discreto e premium fala direto com profissionais que querem levar fé ao ambiente corporativo sem exagero.", foto:"assets/products/07-o-dono.jpg"},
     {id:8, slug:"minha-casa", nome:"Minha Casa", mensagem:"Eu e a minha casa", referencia:"Josué 24:15", publico:"Família", local:"Peito centro", base:"#FFFFFF", tinta:"#14130F", acento:"#B45A3C", estilo:"Tipográfico + símbolo", tecnica:"Serigrafia 4 cores", linhas:["Eu e a","minha casa"], italico:"nenhuma", personalizavel:"número de quadrados = membros da casa",
       descricao:"Frase 'Eu e a minha casa' acompanhada de pequenos quadrados que representam cada membro da família.",
-      vende:"A personalização por família cria um item colecionável e afetivo — perfeito para presentear."},
+      vende:"A personalização por família cria um item colecionável e afetivo — perfeito para presentear.", foto:"assets/products/08-minha-casa.jpg"},
     {id:9, slug:"ressurreicao", nome:"Ressurreição", mensagem:"Ele não está aqui", referencia:"Lucas 24:6", publico:"Todos · Páscoa", local:"Peito centro", base:"#71210E", tinta:"#F4F1EA", acento:"#F7E6DC", estilo:"Simbólico + tipográfico", tecnica:"Serigrafia 1 cor", linhas:["Ele não está","aqui"], italico:"linha2", sazonal:"Páscoa",
       descricao:"Base terracota profunda (Páscoa) com a frase 'Ele não está aqui' em duas linhas, a segunda em itálico.",
-      vende:"Peça sazonal de alto apelo emocional — ideal para campanhas e eventos de Páscoa."},
+      vende:"Peça sazonal de alto apelo emocional — ideal para campanhas e eventos de Páscoa.", foto:"assets/products/09-ressurreicao.jpg"},
     {id:10, slug:"eu-nao-ele", nome:"Eu não, Ele", mensagem:"Eu não, Ele", referencia:"Gálatas 2:20", publico:"Jovem / louvor", local:"Peito centro", base:"#71210E", tinta:"#F4F1EA", acento:"#F7E6DC", estilo:"Lettering + símbolo", tecnica:"Serigrafia 1 cor", linhas:["Eu não,","Ele"], italico:"linha2", simbolo:"duas mãos levantadas",
       descricao:"Lettering com duas mãos levantadas ilustradas abaixo do texto, remetendo à adoração e à entrega.",
-      vende:"Visual forte para quem vive de louvor e adoração — conecta com o público jovem de ministérios de música."},
+      vende:"Visual forte para quem vive de louvor e adoração — conecta com o público jovem de ministérios de música.", foto:"assets/products/10-eu-nao-ele.jpg"},
     {id:11, slug:"tres-atos", nome:"Três Atos", mensagem:"Criação · Cruz · Reino", referencia:null, publico:"Líder / ensino", local:"Costas + peito esq.", base:"#14130F", tinta:"#F4F1EA", acento:"#B45A3C", estilo:"Narrativo ilustrado", tecnica:"Serigrafia 3 cores", linhas:[], italico:"nenhuma", simbolo:"semente, cruz, coroa",
       descricao:"Narrativa em três símbolos (semente, cruz, coroa) espalhados entre peito e costas, contando a história da fé em uma peça.",
-      vende:"Ideal para líderes e professores — vira ferramenta de ensino visual sobre a jornada da fé."}
+      vende:"Ideal para líderes e professores — vira ferramenta de ensino visual sobre a jornada da fé.", foto:"assets/products/11-tres-atos.jpg"}
   ];
 
   function zoneBg(base){
@@ -802,52 +779,10 @@
     if (base === '#14130F') return '#14130F';
     return '#EDE9DE';
   }
-  function isLightBase(base){ return base === '#F4F1EA' || base === '#FFFFFF'; }
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 
-  function fontForEstilo(estilo){
-    if (estilo.indexOf('Minimalista') === 0 || estilo.indexOf('Minimalista') > -1) return "font-family:var(--font-mono);font-weight:700;letter-spacing:.06em;text-transform:uppercase;";
-    if (estilo.indexOf('Lettering') > -1) return "font-family:var(--font-display);font-style:italic;font-size:16px;";
-    return "font-family:var(--font-body);font-weight:700;letter-spacing:.02em;text-transform:uppercase;";
-  }
-
-  function renderPrintArea(p){
-    if (p.linhas && p.linhas.length) {
-      var styleBase = fontForEstilo(p.estilo);
-      var lines = p.linhas.map(function(line, idx){
-        var italic = (p.italico === 'todas') || (p.italico === 'linha2' && idx === 1);
-        return '<span class="pline" style="' + styleBase + (italic ? 'font-style:italic;' : '') + 'color:' + p.tinta + ';">' + esc(line) + '</span>';
-      }).join('');
-      var extra = '';
-      if (p.simbolo === 'duas mãos levantadas') {
-        return '<div class="print-area"><div class="hand hand-left" style="background:' + p.tinta + ';"></div><div class="hand hand-right" style="background:' + p.tinta + ';"></div>' + lines + '</div>';
-      }
-      if (p.personalizavel) {
-        extra = '<div class="family-squares" style="color:' + p.tinta + ';"><span></span><span></span><span></span></div>';
-      }
-      return '<div class="print-area">' + lines + extra + '</div>';
-    }
-    // Sem linhas de texto: produtos simbólicos
-    if (p.slug === 'cruz-reino') {
-      return '<div class="print-area"><div style="width:22px;height:22px;position:relative;">' +
-        '<div style="position:absolute;left:9px;top:0;width:4px;height:22px;background:' + p.tinta + ';"></div>' +
-        '<div style="position:absolute;left:0;top:8px;width:22px;height:4px;background:' + p.tinta + ';"></div>' +
-        '</div></div>';
-    }
-    if (p.slug === 'tres-atos') {
-      return '<div class="print-area"><div class="symbol-row" style="color:' + p.tinta + ';"><span title="Semente">●</span><span title="Cruz">✝</span><span title="Coroa">♛</span></div></div>';
-    }
-    return '';
-  }
-
   function renderShirt(p){
-    var zbg = zoneBg(p.base);
-    var shading = isLightBase(p.base) ? 'shading-light' : 'shading-dark';
-    return '' +
-      '<div class="shirt-mockup ' + shading + '" style="background:' + p.base + ';">' +
-        '<div class="collar" style="background:' + zbg + ';"></div>' +
-        renderPrintArea(p) +
-      '</div>';
+    return '<img src="' + p.foto + '" alt="Camiseta REINO — ' + esc(p.nome) + '" loading="lazy">';
   }
 
   function renderBadges(p){
